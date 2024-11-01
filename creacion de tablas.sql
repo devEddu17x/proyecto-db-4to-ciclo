@@ -3,122 +3,118 @@
 --ALTER USER polleria_db QUOTA UNLIMITED ON USERS;
 
 CREATE TABLE Platillo(
-    IdPlatillo VARCHAR2(6) PRIMARY KEY,
+    Id_Platillo VARCHAR2(6) PRIMARY KEY,
     Nombre VARCHAR2(50) NOT NULL,
     Descripcion VARCHAR2(100),
     Precio NUMERIC(5,2) NOT NULL CHECK (Precio > 0)
 );
 
 CREATE TABLE Extra(
-    IdExtra VARCHAR2(6) PRIMARY KEY,
+    Id_Extra VARCHAR2(6) PRIMARY KEY,
     Nombre VARCHAR2(50) NOT NULL,
     Descripcion VARCHAR2(100),
     Precio NUMERIC(5,2) NOT NULL CHECK (Precio > 0)
 );
 
 CREATE TABLE Bebida(
-    IdBebida VARCHAR2(6) PRIMARY KEY,
+    Id_Bebida VARCHAR2(6) PRIMARY KEY,
     Nombre VARCHAR2(50) NOT NULL,
     Descripcion VARCHAR2(100),
     Capacidad NUMERIC(4,1) NOT NULL,
-    UnidadMedida VARCHAR2(10) NOT NULL,
+    Unidad_Medida VARCHAR2(10) NOT NULL,
     Precio NUMERIC(5,2) NOT NULL CHECK (Precio > 0)
 );
 
 CREATE TABLE Cliente(
-    IdCliente VARCHAR2(6) PRIMARY KEY,
+    Id_Cliente VARCHAR2(6) PRIMARY KEY,
     Nombre VARCHAR2(50) NOT NULL,
     Apellido VARCHAR2(50) NOT NULL,
-    TipoCliente VARCHAR2(16) NOT NULL CHECK (TipoCliente IN ('Natural', 'Juridico', 'Ambos')),
-    CorreoElectronico VARCHAR2(50)
+    Tipo_Cliente VARCHAR2(16) NOT NULL CHECK (Tipo_Cliente IN ('Natural', 'Juridico', 'Ambos')),
+    Correo_Electronico VARCHAR2(50)
 );
 
-CREATE TABLE ClienteJuridico(
-    IdCliente VARCHAR2(6) UNIQUE,
+CREATE TABLE Cliente_Juridico(
+    Id_Cliente VARCHAR2(6) UNIQUE,
     RUC VARCHAR2(11) UNIQUE,
     
-    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
-    PRIMARY KEY (IdCliente, RUC)
+    FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente),
+    PRIMARY KEY (Id_Cliente, RUC)
 );
 
-
-CREATE TABLE RazonSocial(
+CREATE TABLE Razon_Social(
     RUC VARCHAR2(10) PRIMARY KEY,
-    RazonSocial VARCHAR2(100) NOT NULL UNIQUE,
-    FOREIGN KEY (RUC) REFERENCES ClienteJuridico(RUC)
+    Razon_Social VARCHAR2(100) NOT NULL UNIQUE,
+    FOREIGN KEY (RUC) REFERENCES Cliente_Juridico(RUC)
 );
 
-
-CREATE TABLE ClienteNatural(
-    IdCliente VARCHAR2(6) UNIQUE,
+CREATE TABLE Cliente_Natural(
+    Id_Cliente VARCHAR2(6) UNIQUE,
     DNI VARCHAR2(8),
-    FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
-    PRIMARY KEY(IdCliente, DNI)
+    FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente),
+    PRIMARY KEY(Id_Cliente, DNI)
 );
 
 CREATE TABLE Mozo(
-    IdMozo VARCHAR2(6),
+    Id_Mozo VARCHAR2(6),
     Nombre VARCHAR2(50) NOT NULL,
     Apellido VARCHAR2(50) NOT NULL,
     DNI INTEGER UNIQUE NOT NULL,
     Telefono INTEGER UNIQUE NOT NULL CHECK (Telefono > 900000000),
-    PRIMARY KEY (IdMozo)
+    PRIMARY KEY (Id_Mozo)
 );
-
 
 CREATE TABLE Pedido(
-    IdPedido VARCHAR2(6) PRIMARY KEY,
+    Id_Pedido VARCHAR2(6) PRIMARY KEY,
     Fecha DATE DEFAULT SYSDATE NOT NULL,
-    IdMozo VARCHAR2(6) NOT NULL,
+    Id_Mozo VARCHAR2(6) NOT NULL,
     
-    FOREIGN KEY (IdMozo) REFERENCES Mozo(IdMozo)
+    FOREIGN KEY (Id_Mozo) REFERENCES Mozo(Id_Mozo)
 );
 
-CREATE TABLE DetallePlatillo(
-    IdPedido VARCHAR2(6),
-    IdPlatillo VARCHAR2(6),
+CREATE TABLE Detalle_Platillo(
+    Id_Pedido VARCHAR2(6),
+    Id_Platillo VARCHAR2(6),
     Cantidad INTEGER NOT NULL CHECK (Cantidad > 0),
-    FOREIGN KEY (IdPlatillo) REFERENCES Platillo(IdPlatillo),
-    FOREIGN KEY (IdPedido) REFERENCES Pedido(IdPedido),
-    PRIMARY KEY (IdPedido, IdPlatillo)
+    FOREIGN KEY (Id_Platillo) REFERENCES Platillo(Id_Platillo),
+    FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido),
+    PRIMARY KEY (Id_Pedido, Id_Platillo)
 );
 
-
-CREATE TABLE BebidaPedido(
-    IdPedido VARCHAR2(6),
-    IdBebida VARCHAR2(6),
+CREATE TABLE Bebida_Pedido(
+    Id_Pedido VARCHAR2(6),
+    Id_Bebida VARCHAR2(6),
     Cantidad INTEGER NOT NULL CHECK (Cantidad > 0),
-    FOREIGN KEY (IdBebida) REFERENCES Bebida(IdBebida),
-    FOREIGN KEY (IdPedido) REFERENCES Pedido(IdPedido),
-    PRIMARY KEY (IdPedido, IdBebida)
+    FOREIGN KEY (Id_Bebida) REFERENCES Bebida(Id_Bebida),
+    FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido),
+    PRIMARY KEY (Id_Pedido, Id_Bebida)
 );
 
-CREATE TABLE ExtraPedido(
-    IdPedido VARCHAR2(6),
-    IdExtra VARCHAR2(6),
+CREATE TABLE Extra_Pedido(
+    Id_Pedido VARCHAR2(6),
+    Id_Extra VARCHAR2(6),
     Cantidad INTEGER NOT NULL CHECK (Cantidad > 0),
-    FOREIGN KEY (IdExtra) REFERENCES Extra(IdExtra),
-    FOREIGN KEY (IdPedido) REFERENCES Pedido(IdPedido),
-    PRIMARY KEY (IdPedido, IdExtra)
+    FOREIGN KEY (Id_Extra) REFERENCES Extra(Id_Extra),
+    FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido),
+    PRIMARY KEY (Id_Pedido, Id_Extra)
 );
 
 CREATE TABLE Comprobante(
-    IdComprobante VARCHAR2(6) PRIMARY KEY,
-    FechaEmision DATE DEFAULT SYSDATE NOT NULL,
+    Id_Comprobante VARCHAR2(6) PRIMARY KEY,
+    Fecha_Emision DATE DEFAULT SYSDATE NOT NULL,
     Total NUMERIC(5,2) NOT NULL,
-    TipoComprobante VARCHAR2(16) NOT NULL CHECK (TipoComprobante IN ('Boleta', 'Factura'))
+    Tipo_Comprobante VARCHAR2(16) NOT NULL CHECK (Tipo_Comprobante IN ('Boleta', 'Factura'))
 );
 
 CREATE TABLE Factura(
-    IdFactura VARCHAR2(6) PRIMARY KEY,
-    NumeroFactura VARCHAR2(15) NOT NULL,
-    IdComprobante VARCHAR2(6) NOT NULL UNIQUE,
-    FOREIGN KEY (IdComprobante) REFERENCES Comprobante(IdComprobante)
+    Id_Factura VARCHAR2(6) PRIMARY KEY,
+    Numero_Factura VARCHAR2(15) NOT NULL,
+    Id_Comprobante VARCHAR2(6) NOT NULL UNIQUE,
+    FOREIGN KEY (Id_Comprobante) REFERENCES Comprobante(Id_Comprobante)
 );
 
 CREATE TABLE Boleta(
-    IdBoleta VARCHAR2(6) PRIMARY KEY,
-    NumeroBoleta VARCHAR2(15) NOT NULL,
-    IdComprobante VARCHAR2(6) NOT NULL UNIQUE,
-    FOREIGN KEY (IdComprobante) REFERENCES Comprobante(IdComprobante)
+    Id_Boleta VARCHAR2(6) PRIMARY KEY,
+    Numero_Boleta VARCHAR2(15) NOT NULL,
+    Id_Comprobante VARCHAR2(6) NOT NULL UNIQUE,
+    FOREIGN KEY (Id_Comprobante) REFERENCES Comprobante(Id_Comprobante)
 );
