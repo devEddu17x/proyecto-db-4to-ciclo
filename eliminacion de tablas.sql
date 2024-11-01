@@ -1,0 +1,15 @@
+DROP TABLE Factura;
+DROP TABLE Boleta;
+DROP TABLE Comprobante;
+DROP TABLE DetallePlatillo;
+DROP TABLE BebidaPedido;
+DROP TABLE ExtraPedido;
+DROP TABLE Platillo; 
+DROP TABLE Extra; 
+DROP TABLE Bebida;
+DROP TABLE RazonSocial;
+DROP TABLE ClienteJuridico;
+DROP TABLE ClienteNatural;
+DROP TABLE Pedido;
+DROP TABLE Mozo;
+DROP TABLE Cliente;
