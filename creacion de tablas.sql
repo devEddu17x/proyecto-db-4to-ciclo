@@ -36,15 +36,9 @@ CREATE TABLE Cliente(
 CREATE TABLE Cliente_Juridico(
     Id_Cliente VARCHAR2(6) UNIQUE,
     RUC VARCHAR2(11) UNIQUE,
-    
+    Razon_Social VARCHAR2(100) UNIQUE NOT NULL,
     FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente),
     PRIMARY KEY (Id_Cliente, RUC)
-);
-
-CREATE TABLE Razon_Social(
-    RUC VARCHAR2(11) PRIMARY KEY,
-    Razon_Social VARCHAR2(100) NOT NULL UNIQUE,
-    FOREIGN KEY (RUC) REFERENCES Cliente_Juridico(RUC)
 );
 
 CREATE TABLE Cliente_Natural(
@@ -102,7 +96,12 @@ CREATE TABLE Comprobante(
     Id_Comprobante VARCHAR2(6) PRIMARY KEY,
     Fecha_Emision DATE DEFAULT SYSDATE NOT NULL,
     Total NUMERIC(5,2) NOT NULL,
-    Tipo_Comprobante VARCHAR2(16) NOT NULL CHECK (Tipo_Comprobante IN ('Boleta', 'Factura'))
+    Tipo_Comprobante VARCHAR2(16) NOT NULL CHECK (Tipo_Comprobante IN ('Boleta', 'Factura')),
+    Id_Pedido VARCHAR2(6) NOT NULL,
+    Id_Cliente VARCHAR2(6) NOT NULL,
+    FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido),
+    FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente)
+
 );
 
 CREATE TABLE Factura(

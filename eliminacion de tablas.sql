@@ -7,7 +7,6 @@ DROP TABLE Extra_Pedido;
 DROP TABLE Platillo; 
 DROP TABLE Extra; 
 DROP TABLE Bebida;
-DROP TABLE Razon_Social;
 DROP TABLE Cliente_Juridico;
 DROP TABLE Cliente_Natural;
 DROP TABLE Pedido;
