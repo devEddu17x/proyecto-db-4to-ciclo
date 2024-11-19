@@ -44,4 +44,15 @@ GROUP BY
 	M.NOMBRE,
 	M.APELLIDO;
 
+-- obtener el total de ventas por día
+SELECT
+	TRUNC(FECHA_EMISION) AS DIA,
+	SUM(TOTAL)           AS TOTAL_VENTAS
+FROM
+	COMPROBANTE
+GROUP BY
+	TRUNC(FECHA_EMISION)
+ORDER BY
+	DIA;
+
 -- mas proximamente
