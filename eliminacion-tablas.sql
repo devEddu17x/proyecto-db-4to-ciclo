@@ -1,5 +1,3 @@
-DROP TABLE Factura;
-DROP TABLE Boleta;
 DROP TABLE Comprobante;
 DROP TABLE Detalle_Platillo;
 DROP TABLE Bebida_Pedido;
