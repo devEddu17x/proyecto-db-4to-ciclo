@@ -1,2 +1,1 @@
 DROP TRIGGER trg_comprobante_calcular_total;
-DROP TRIGGER trg_crear_boleta_factura;

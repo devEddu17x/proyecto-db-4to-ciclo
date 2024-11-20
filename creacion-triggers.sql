@@ -33,17 +33,3 @@ BEGIN
 END;
 /
 
--- generar boltea o factura dependiento del tipo de comprobante
-CREATE OR REPLACE TRIGGER trg_crear_boleta_factura
-AFTER INSERT ON COMPROBANTE
-FOR EACH ROW
-BEGIN 
-	IF :NEW.tipo_comprobante = 'Boleta' THEN 
-		INSERT INTO BOLETA(id_comprobante)
-		VALUES(:NEW.id_comprobante);
-	ELSE
-		INSERT INTO FACTURA(id_comprobante)
-		VALUES(:NEW.id_comprobante);
-	END IF;
-END;
-/

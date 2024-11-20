@@ -1,5 +1,3 @@
-TRUNCATE TABLE Factura;
-TRUNCATE TABLE Boleta;
 TRUNCATE TABLE Comprobante;
 TRUNCATE TABLE Detalle_Platillo;
 TRUNCATE TABLE Bebida_Pedido;
