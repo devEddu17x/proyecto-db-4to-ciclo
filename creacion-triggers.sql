@@ -1,5 +1,28 @@
 -- cada trigger se debe ejecutar uno por uno para que no genere errores
 
+
+CREATE OR REPLACE TRIGGER TRG_VERIFICAR_MESA_OCUPADA
+BEFORE INSERT ON PEDIDO
+FOR EACH ROW
+DECLARE
+    mesa_estado VARCHAR2(10); -- Declaración explícita del tipo de datos
+BEGIN
+    -- Obtener el estado de la mesa
+    SELECT ESTADO INTO mesa_estado
+    FROM MESA
+    WHERE NUMERO_MESA = :NEW.NUMERO_MESA;
+
+    -- Verificar si la mesa está ocupada
+    IF mesa_estado = 'Ocupado' THEN
+        RAISE_APPLICATION_ERROR(-20001, 'La mesa ya está ocupada. Por favor elige otra mesa.');
+    END IF;
+END;
+
+/
+
+
+
+
 CREATE OR REPLACE TRIGGER trg_comprobante_calcular_total
 BEFORE INSERT ON COMPROBANTE
 FOR EACH ROW

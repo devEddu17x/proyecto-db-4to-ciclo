@@ -1,360 +1,151 @@
 -- insertando el menu de la polleria
-INSERT ALL 
-	-- pollo entero
-	INTO PLATILLO(ID_PLATILLO , NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00001', 'Pollo San Pedro', 'Con 1/2 porc. de papa frita', 51.00)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00002', 'Pollo San Pedro', 	'Con 1/2 porc. de papa frita y ensalada', 57.00)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00003', 'Pollo San Pedro', 'Con porc. de papa frita y ensalada', 71.00)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00004', 'Pollo San Pedro', 'Con porc. de papa frita y ensalada + inka cola 1.5 L', 76.00)
-	-- medio pollo
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00005', '1/2 Pollo San Pedro', 'Con 1/2 porc. de papa frita y ensalada + 2 pepsi de 500 ml', 38.50)
-	-- 1/4 pollo
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00006', '1/4 Pollo San Pedro', 'Con papa frita y ensalda personal + 1 pepsi de 500 ml', 24.50)
-	-- pollo solo
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00007', 'Pollo solo San Pedro', 'Pollo entero solo y sin adicionales', 44.00)
-	-- platillo criollo
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00008', 'Lomo Saltado', NULL, 28)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00009', 'Saltado de Pollo', NULL, 21.50)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00010', 'Tallarin Saltado de Res', NULL, 28)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00011', 'Saltado Saltado de Pollo', NULL, 21.50)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00012', 'Milanesa', NULL, 16.50)
-	INTO PLATILLO(ID_PLATILLO, NOMBRE, DESCRIPCION, PRECIO)
-	VALUES('P00013', 'Filete de Pollo', NULL, 16.50)
-SELECT * FROM dual;
+-- Platos de Pollo a la Brasa
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P001', 'Pollo San Pedro', 51.00, 'Brasa', 'Pollo San Pedro con 1/2 porción de papa frita');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P002', 'Pollo San Pedro', 57.00, 'Brasa', 'Pollo San Pedro con 1/2 porción de papa frita y ensalada');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P003', 'Pollo San Pedro', 71.00, 'Brasa', 'Pollo San Pedro con 1/2 porción de papa frita, ensalada y 1.5 L de Inca Kola');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P004', 'Pollo San Pedro', 76.00, 'Brasa', 'Pollo San Pedro con 1/2 porción de papa frita, ensalada y 1.5 L de Inca Kola');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P005', '1/2 Pollo San Pedro', 38.50, 'Brasa', '1/2 Pollo San Pedro con papa frita y 2 Pepsi 500ml');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P006', '1/4 Pollo San Pedro', 24.50, 'Brasa', '1/4 Pollo San Pedro con ensalada personal y 1 Pepsi 500ml');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('P007', 'Pollo San Pedro', 44.00, 'Brasa', 'Pollo San Pedro sin acompañamientos');
 
-INSERT ALL 
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00001', 'Coca Cola', 1.5, 'L', 'Coca cola refrescante de litro y medio', 8.5)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00002', 'Inka Kola', 1.5, 'L', 'Inka Cola refrescante de litro y medio', 8.5)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00003', 'Coca Cola', 500, 'ml', 'Coca cola refrescante de 500 ml', 3.5)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00004', 'Inka Cola', 500, 'ml', 'Inka Cola refrescante de 500 ml', 3.5)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00005', 'Jarra Limonada', 1, 'L', 'Jarra de limonada refrescante de 1 L', 12.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00006', 'Agua San Mateo', 600, 'ml', 'Jarra de limonada refrescante de 1 L', 3.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00007', 'Te', 1, 'Taza', '1 taza de infusion', 3.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00008', 'Te, Canela y Clavo', 1, 'Taza', '1 taza de te con canela y clavo', 3.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00009', 'Anis', 1, 'Taza', 'Infusion de Anis', 2.50)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00010', 'Manzanilla', 1, 'Taza', 'Infusion de Manzanilla', 2.50)
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00011', 'Cafe', 1, 'Taza', 'Cafe negro', 3.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00012', 'Jarra con Sangria', 1, 'L', 'Vino con fruta', 40.0)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00013', 'Copa de Sangria', 1, 'Copa', 'Copa exquisita', 12.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00014', 'Vino Tacama Rosé', 750, 'ml', 'Vino fresco de Tacama', 38.00)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00015', 'Vino Fond de Cave', 750, 'ml', 'Vino fresco de Fond', 38.50)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00016', 'Vino Santiago Queirolo', 1, 'botella', 'Vino Santiado traido de Santiago', 29.50)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00017', 'Vino Tabernero', 1, 'botella', 'Vino de la taberna', 29.50)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00018', 'Cerveza Pilsen Callao', 1, 'botella', 'Cerveza Pilsen de Callao', 8.0)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00019', 'Cerveza Pilsen Trujillo', 1, 'botella', 'Cerveza Pilsen de Trujillo', 8.0)	
-	INTO BEBIDA(ID_BEBIDA, NOMBRE, CAPACIDAD, UNIDAD_MEDIDA, DESCRIPCION, PRECIO)
-	VALUES('B00020', 'Cerveza Cuzqueña', 1, 'botella', 'Cerveza traida desde Cuzco', 9.0)	
-SELECT * FROM dual;
-	
-
-INSERT ALL
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00001', 'Porc. Papas Fritas', 14)
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00002', '1/2 Porc. Papas Fritas', 7.5)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00003', 'Porc. Ensalda Mixta', 13)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00004', '1/2 Porc.Ensalda Mixta', 7)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00005', 'Porc. Arroz', 4)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00006', '1 Hot Dog', 1.5)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00007', '1 Huevo frito', 2)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00008', '1 Huevo sancochado', 2)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00009', '1 Mayonesa', 2)	
-	INTO EXTRA(ID_EXTRA, NOMBRE, PRECIO)
-	VALUES('E00010', '1 Aji', 2)	
-SELECT * FROM DUAL;
-	
-	
-	
-INSERT ALL 
-    INTO Mozo(ID_MOZO, NOMBRE, APELLIDO, DNI, TELEFONO)
-    VALUES('M00001', 'Juan', 'Perez', 45678978, 967167272)    
-    INTO Mozo(ID_MOZO, NOMBRE, APELLIDO, DNI, TELEFONO)
-    VALUES('M00002', 'Rony', 'Lujan', 45678977, 967167273)
-    INTO Mozo(ID_MOZO, NOMBRE, APELLIDO, DNI, TELEFONO)
-    VALUES('M00003', 'Ana', 'Gomez', 45678976, 967167274)
-    INTO Mozo(ID_MOZO, NOMBRE, APELLIDO, DNI, TELEFONO)
-    VALUES('M00004', 'Luis', 'Martinez', 45678975, 967167275)
-    INTO Mozo(ID_MOZO, NOMBRE, APELLIDO, DNI, TELEFONO)
-    VALUES('M00005', 'Maria', 'Lopez', 45678974, 967167276)
-SELECT * FROM dual;
-
-INSERT ALL 
-	INTO PEDIDO(ID_PEDIDO, ID_MOZO)
-	VALUES('P00001', 'M00001')
-	INTO PEDIDO(ID_PEDIDO, ID_MOZO)
-	VALUES('P00002', 'M00001')
-SELECT * FROM dual;
-
--- insertando los platillos para los pedidos 1 y 2
-INSERT ALL 
-	INTO DETALLE_PLATILLO(ID_PEDIDO, ID_PLATILLO, CANTIDAD)
-	VALUES('P00001', 'P00001', 2)
-	INTO DETALLE_PLATILLO(ID_PEDIDO, ID_PLATILLO, CANTIDAD)
-	VALUES('P00001', 'P00002', 2)
-	INTO DETALLE_PLATILLO(ID_PEDIDO, ID_PLATILLO, CANTIDAD)
-	VALUES('P00002', 'P00003', 1)
-	INTO DETALLE_PLATILLO(ID_PEDIDO, ID_PLATILLO, CANTIDAD)
-	VALUES('P00002', 'P00004', 1)
-SELECT * FROM dual;
-	
--- insertando las bebidas de del pedido y 2
-INSERT ALL 
-	INTO BEBIDA_PEDIDO(ID_PEDIDO, ID_BEBIDA, CANTIDAD)
-	VALUES('P00001', 'B00001', 1)
-	INTO BEBIDA_PEDIDO(ID_PEDIDO, ID_BEBIDA, CANTIDAD)
-	VALUES('P00001', 'B00002', 3)
-	INTO BEBIDA_PEDIDO(ID_PEDIDO, ID_BEBIDA, CANTIDAD)
-	VALUES('P00002', 'B00002', 2)
-SELECT * FROM dual;
-
--- insertando los extra del pedido 1, para el caso de que el 2 no pidio extras
-INSERT ALL 
-	INTO EXTRA_PEDIDO(ID_PEDIDO, ID_EXTRA, CANTIDAD)
-	VALUES('P00001', 'E00005', 1)
-	INTO EXTRA_PEDIDO(ID_PEDIDO, ID_EXTRA, CANTIDAD)
-	VALUES('P00001', 'E00006', 2)
-SELECT * FROM dual;
+-- Platos Criollos
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C001', 'Lomo Saltado', 28.00, 'Criollo', 'Lomo Saltado tradicional con guarnición de arroz y papas');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C002', 'Saltado de Pollo', 21.50, 'Criollo', 'Saltado de Pollo acompañado de arroz y papas fritas');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C003', 'Tallarín Saltado de Res', 25.50, 'Criollo', 'Tallarín Saltado con carne de res y vegetales');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C004', 'Tallarín Saltado de Pollo', 21.50, 'Criollo', 'Tallarín Saltado con pollo y vegetales');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C005', 'Milanesa de Pollo', 16.50, 'Criollo', 'Milanesa de Pollo empanizada con guarnición');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C006', 'Filete de Pollo', 16.50, 'Criollo', 'Filete de Pollo a la plancha con guarnición');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C007', 'Caldo de Gallina', 17.00, 'Criollo', 'Caldo de Gallina tradicional');
+INSERT INTO PLATILLO (ID_PLATILLO, NOMBRE, PRECIO, CATEGORIA, DESCRIPCION)
+VALUES ('C008', 'Salchipapa', 12.00, 'Criollo', 'Salchicha frita con papas');
 
 
 
-INSERT ALL
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00001', 'Carlos', 'Diaz', 'Natural', 'carlosdiaz@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00002', 'Cindy', 'Montoya', 'Juridico', 'cindymontoyai@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00003', 'Luis', 'Fernandez', 'Natural', 'luisfernandez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00004', 'Ana', 'Gonzalez', 'Juridico', 'anagonzalez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00005', 'Pedro', 'Martinez', 'Ambos', 'pedromartinez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00006', 'Laura', 'Ramirez', 'Natural', 'lauraramirez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00007', 'Jorge', 'Hernandez', 'Juridico', 'jorgehernandez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00008', 'Sofia', 'Lopez', 'Ambos', 'sofialopez@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00009', 'Andres', 'Torres', 'Natural', 'andrestorres@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00010', 'Mariana', 'Castillo', 'Juridico', 'marianacastillo@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00011', 'Ricardo', 'Pérez', 'Ambos', 'ricardoperez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00012', 'Valeria', 'Salazar', 'Natural', 'valeriasalazar@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00013', 'Felipe', 'Mendoza', 'Juridico', 'felipemendoza@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00014', 'Tatiana', 'Jimenez', 'Ambos', 'tatianajimenez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00015', 'Diego', 'Vargas', 'Natural', 'diegovargas@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00016', 'Camila', 'Rojas', 'Juridico', 'camilarojas@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00017', 'Santiago', 'Pineda', 'Ambos', 'santiagopineda@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00018', 'Isabella', 'Nunez', 'Natural', 'isabellanunez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00019', 'Fernando', 'Alvarez', 'Juridico',  'fernandoalvarez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00020','Natalia','Cardenas','Ambos','natalia.cardenas@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00021', 'Gabriel', 'Soto', 'Natural', 'gabrielsoto@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00022', 'Paola', 'Cruz', 'Juridico', 'paolacruz@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00023', 'Oscar', 'Castro', 'Ambos', 'osarcastro@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00024', 'Lucia', 'Guerra', 'Natural', 'luciaguerra@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00025', 'Ricardo', 'Mora', 'Juridico', 'ricardomora@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00026', 'Julia', 'Ceballos', 'Ambos', 'juliaceballos@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00027', 'Esteban', 'Hidalgo', 'Natural', 'estebanhidalgo@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00028', 'Marisol', 'Rivas', 'Juridico', 'marisolrivas@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00029', 'Alberto', 'Salas', 'Ambos', 'albertosalas@gmail.com')    
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00030', 'Veronica', 'López', 'Natural', 'veronicalopez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00031', 'Hugo', 'Paz', 'Juridico', 'hugopaz@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00032', 'Claudia', 'Bermudez', 'Ambos', 'claudiabermudez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00033', 'Fernando', 'García', 'Natural', 'fernandogarcia@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00034', 'Andrea', 'Martínez', 'Juridico','andreamartinez@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00035','Nicolas','Vega','Ambos','nicolasvega@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00036','Sofia','Maldonado','Natural','sofimaldonado@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00037','Emilio','Salas','Juridico','emiliosalas@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00038','Renata','Ocampo','Ambos','renataocampo@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00039','Diego','Quintero','Natural','diegoquintero@gmail.com')
-    INTO Cliente(ID_CLIENTE, Nombre, Apellido, TIPO_CLIENTE, CORREO_ELECTRONICO)
-    VALUES('C00040','Luciana','Valdes','Juridico','lucianavaldes@gmail.com')
-SELECT * FROM dual;
+-- Gaseosas
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B001', 'Coca Cola', 8.50, 'Gaseosa', '1.5L', 'Botella de Coca Cola de 1.5L');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B002', 'Inca Kola', 8.50, 'Gaseosa', '1.5L', 'Botella de Inca Kola de 1.5L');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B003', 'Coca Cola', 5.50, 'Gaseosa', '500ml', 'Botella de Coca Cola de 500ml');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B004', 'Inca Kola', 5.50, 'Gaseosa', '500ml', 'Botella de Inca Kola de 500ml');
+-- Agua
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B005', 'Agua San Mateo', 3.00, 'Agua', '600ml', 'Botella de agua San Mateo de 600ml');
+-- Jugos
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B006', 'Limonada', 4.00, 'Jugo', '1L', 'Jarra de limonada de 1L');
+-- Infusiones
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B007', 'Té/Infusión de Canela y Clavo', 2.50, 'Jugo', 'N/A', 'Infusión de té con canela y clavo');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B008', 'Anís/Manzanilla', 2.50, 'Jugo', 'N/A', 'Infusión de anís o manzanilla');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B009', 'Café', 2.50, 'Jugo', 'N/A', 'Café');
+-- Bebidas Alcohólicas
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B010', 'Sangría', 40.00, 'Alcohol', 'Jarra', 'Jarra de sangría tradicional');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B011', 'Sangría', 12.00, 'Alcohol', 'Copa', 'Copa de sangría tradicional');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B012', 'Vino Tacama Rosé', 50.00, 'Alcohol', '750ml', 'Botella de vino Tacama Rosé de 750ml');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B013', 'Chicha', 8.00, 'Alcohol', '1L', 'Jarra de chicha de 1L');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B014', 'Vino Tabernero Rosado', 40.00, 'Alcohol', '750ml', 'Botella de vino Tabernero Rosado de 750ml');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B015', 'Cerveza Pilsen Trujillo', 9.00, 'Alcohol', '330ml', 'Botella de cerveza Pilsen Trujillo');
+INSERT INTO BEBIDA (ID_BEBIDA, NOMBRE, PRECIO, CATEGORIA, TAMANO, DESCRIPCION)
+VALUES ('B016', 'Cerveza Cusqueña', 9.00, 'Alcohol', '330ml', 'Botella de cerveza Cusqueña');
+
+-- Papas fritas
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G001', '1', 'Papas Fritas', 14.00, 1, 'Porc.');
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G002', '1/2', 'Papas Fritas', 7.50, 1, 'Porc.');
+-- Ensalada mixta
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G003', '1', 'Ensalada Mixta', 10.00, 1, 'Porc.');
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G004', '1/2', 'Ensalada Mixta', 5.00, 1, 'Porc.');
+-- Arroz
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G005', '1', 'Arroz', 3.00, 1, 'Porc.');
+-- Hot Dog
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G006', '1', 'Hot Dog', 3.00, 1, 'Unid.');
+-- Huevo frito
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G007', '1', 'Huevo Frito', 1.50, 1, 'Unid.');
+-- Huevo sancochado
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G008', '1', 'Huevo Sancochado', 1.50, 1, 'Unid.');
+-- Mayonesa
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G009', '1', 'Mayonesa', 1.00, 1, 'oz.');
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G010', '2', 'Mayonesa', 2.00, 2, 'oz.');
+-- Ají
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G011', '1', 'Ají', 1.00, 1, 'oz.');
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G012', '2', 'Ají', 2.00, 2, 'oz.');
+-- Vinagreta
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G013', '1', 'Vinagreta', 1.00, 1, 'oz.');
+INSERT INTO GUARNICION (ID_GUARNICION, PORCION, NOMBRE, PRECIO, CANTIDAD, MAGNITUD)
+VALUES ('G014', '2', 'Vinagreta', 2.00, 2, 'oz.');
 
 
-INSERT ALL
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00001', '12345678')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00003', '23456789')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00006', '34567890')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00009', '45678901')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00012', '56789012')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00015', '67890123')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00018', '78901234')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00021', '89012345')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00024', '90123456')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00027', '01234567')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00030', '11223344')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00033', '22334455')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00036', '33445566')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00039', '44556677')
-	-- Clientes de Tipo 'Ambos'
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00005', '55667788')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00008', '66778899')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00011', '77889900')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00014', '88990011')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00017', '99001122')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00020', '10112233')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00023', '11223344')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00026', '22334455')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00029', '33445566')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00032', '44556677')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00035', '55667788')
-	INTO Cliente_Natural (Id_Cliente, DNI)
-	VALUES ('C00038', '66778899')
-SELECT * FROM dual;
 
-INSERT ALL
-    -- Clientes de Tipo 'Juridico'
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00002', '12345678901', 'TECNOLOGÍAS AVANZADAS DEL PERÚ S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00004', '23456789012', 'CONSTRUCCIONES Y SERVICIOS GENERALES LIMA E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00007', '34567890123', 'CONSULTORES EMPRESARIALES UNIDOS S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00010', '45678901234', 'INDUSTRIAS METALÚRGICAS DEL CENTRO S.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00013', '56789012345', 'SERVICIOS LOGÍSTICOS INTEGRADOS S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00016', '67890123456', 'DESARROLLO INMOBILIARIO Y CONSTRUCCIÓN E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00019', '78901234567', 'SOLUCIONES TECNOLÓGICAS DEL FUTURO S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00022', '89012345678', 'IMPORTACIONES Y EXPORTACIONES ANDINAS S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00025', '90123456789', 'DISTRIBUIDORA COMERCIAL DEL NORTE S.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00028', '01234567890', 'ASESORES CONTABLES Y TRIBUTARIOS E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00031', '11223344556', 'MANUFACTURAS INDUSTRIALES DEL PERÚ S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00034', '22334455667', 'SERVICIOS EDUCATIVOS MODERNOS S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00037', '33445566778', 'TRANSPORTES Y LOGÍSTICA NACIONAL E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00040', '44556677889', 'CONSTRUCTORA E INMOBILIARIA PROGRESO S.A.C.')
-    -- Clientes de Tipo 'Ambos'
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00005', '55667788990', 'INVERSIONES Y NEGOCIOS MÚLTIPLES S.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00008', '66778899001', 'CONSULTORÍA Y GESTIÓN EMPRESARIAL S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00011', '77889900112', 'SERVICIOS MÉDICOS ESPECIALIZADOS E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00014', '88990011223', 'INGENIERÍA Y PROYECTOS DEL PERÚ S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00017', '99001122334', 'COMERCIALIZADORA DE PRODUCTOS INDUSTRIALES S.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00020', '10112233445', 'SERVICIOS AMBIENTALES Y ECOLÓGICOS S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00023', '11224344556', 'DESARROLLO DE SOFTWARE Y SISTEMAS E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00026', '22334455467', 'SOLUCIONES EMPRESARIALES INTEGRALES S.A.C.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00029', '38445566778', 'IMPORTADORA DE MAQUINARIAS Y EQUIPOS S.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00032', '44556677881', 'SERVICIOS DE CONSULTORÍA FINANCIERA S.A.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00035', '55667788993', 'CONSTRUCTORA Y SERVICIOS GENERALES DEL SUR E.I.R.L.')
-    INTO Cliente_Juridico (Id_Cliente, RUC, Razon_Social)
-    VALUES ('C00038', '66778899009', 'TECNOLOGÍAS DE LA INFORMACIÓN CORPORATIVA S.A.C.')
-SELECT * FROM dual;
 
--- Insertando el comprobante para el 1er y 2do cliente en base al 1er y 2do pedido
-INSERT ALL 
-	INTO COMPROBANTE(ID_COMPROBANTE, TIPO_COMPROBANTE, ID_PEDIDO, ID_CLIENTE)
-	VALUES('C00001','Boleta','P00001', 'C00001')
-	INTO COMPROBANTE(ID_COMPROBANTE, TIPO_COMPROBANTE, ID_PEDIDO, ID_CLIENTE)
-	VALUES('C00002','Factura','P00002', 'C00002')
-SELECT * FROM dual;
+-- Inserción de 20 mesas
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (1, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (2, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (3, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (4, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (5, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (6, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (7, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (8, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (9, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (10, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (11, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (12, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (13, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (14, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (15, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (16, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (17, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (18, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (19, 'Disponible');
+INSERT INTO MESA (NUMERO_MESA, ESTADO) VALUES (20, 'Disponible');
+
+
+
+-- Inserción de 5 mozos
+INSERT INTO MOZO (ID_MOZO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, TELEFONO, DNI) 
+VALUES ('MZ001', 'Carlos', 'Gonzales', 'Ramirez', '987654321', '01234567');
+INSERT INTO MOZO (ID_MOZO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, TELEFONO, DNI) 
+VALUES ('MZ002', 'Luis', 'Torres', 'Martinez', '976543210', '12345678');
+INSERT INTO MOZO (ID_MOZO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, TELEFONO, DNI) 
+VALUES ('MZ003', 'Ana', 'Huaman', 'Lopez', '965432109', '23456789');
+INSERT INTO MOZO (ID_MOZO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, TELEFONO, DNI) 
+VALUES ('MZ004', 'María', 'Pérez', 'Soto', '954321098', '34567890');
+INSERT INTO MOZO (ID_MOZO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, TELEFONO, DNI) 
+VALUES ('MZ005', 'Jorge', 'Rojas', 'Vargas', '943210987', '45678901');
