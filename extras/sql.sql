@@ -1,0 +1,118 @@
+-- filtro de platillos criollos ordenados por precio
+
+SELECT 
+    NOMBRE, 
+    PRECIO
+FROM 
+    PLATILLO
+WHERE 
+    CATEGORIA = 'Criollo'
+ORDER BY 
+    PRECIO DESC;
+
+
+-- obtener categorias de platillos con un precio promedio menor a 30
+SELECT 
+    CATEGORIA, 
+    AVG(PRECIO) AS PRECIO_PROMEDIO
+FROM 
+    PLATILLO
+WHERE 
+    PRECIO < 30
+GROUP BY 
+    CATEGORIA;
+
+
+-- seleccionar categorias donde el precio promedio sea mayor al promedio total
+SELECT 
+    CATEGORIA, 
+    AVG(PRECIO) AS PRECIO_PROMEDIO
+FROM 
+    PLATILLO
+GROUP BY 
+    CATEGORIA
+HAVING 
+    AVG(PRECIO) > (
+        SELECT 
+            AVG(PRECIO)
+        FROM 
+            PLATILLO
+    );
+
+-- seleccionar platillos con precios mayores al precio promedio
+SELECT 
+    NOMBRE, 
+    PRECIO
+FROM 
+    PLATILLO
+WHERE 
+    PRECIO > (
+        SELECT 
+            AVG(PRECIO)
+        FROM 
+            PLATILLO
+    );
+
+
+-- obtener la venta total de platillo el dia de hoy
+SELECT 
+    PL.NOMBRE AS PLATILLO, 
+    SUM(PP.CANTIDAD) AS CANTIDAD_VENDIDA,
+    SUM(PP.CANTIDAD * PL.PRECIO) AS VENTA_TOTAL
+FROM 
+    PLATILLO PL
+JOIN 
+    PLATILLO_PEDIDO PP ON PL.ID_PLATILLO = PP.ID_PLATILLO
+JOIN 
+    PEDIDO P ON PP.ID_PEDIDO = P.ID_PEDIDO
+WHERE 
+    P.FECHA = TRUNC(SYSDATE)  -- trunc sirve pera quitar la hora de la fecha
+GROUP BY 
+    PL.NOMBRE
+ORDER BY 
+    VENTA_TOTAL DESC;
+
+
+-- obtener el platillo mas vendido
+SELECT 
+    PL.NOMBRE AS PLATILLO, 
+    SUM(PP.CANTIDAD) AS CANTIDAD_VENDIDA_TOTAL
+FROM 
+    PLATILLO PL
+JOIN 
+    PLATILLO_PEDIDO PP ON PL.ID_PLATILLO = PP.ID_PLATILLO
+GROUP BY 
+    PL.NOMBRE
+ORDER BY 
+    CANTIDAD_VENDIDA_TOTAL DESC
+FETCH FIRST 1 ROWS ONLY;  -- Selecciona solo el platillo más vendido
+
+
+-- platillo favorito de cada cliente
+SELECT 
+    C.NOMBRE || ' ' || C.APELLIDO_PATERNO || ' ' || C.APELLIDO_MATERNO AS CLIENTE,
+    PL.NOMBRE AS PLATILLO,
+    SUM(PP.CANTIDAD) AS CANTIDAD_VENDIDA_TOTAL
+FROM 
+    CLIENTE C
+JOIN 
+    COMPROBANTE COM ON C.ID_CLIENTE = COM.ID_CLIENTE
+JOIN 
+    PEDIDO P ON COM.ID_PEDIDO = P.ID_PEDIDO
+JOIN 
+    PLATILLO_PEDIDO PP ON P.ID_PEDIDO = PP.ID_PEDIDO
+JOIN 
+    PLATILLO PL ON PP.ID_PLATILLO = PL.ID_PLATILLO
+GROUP BY 
+    C.ID_CLIENTE, PL.ID_PLATILLO, C.NOMBRE, C.APELLIDO_PATERNO, C.APELLIDO_MATERNO, PL.NOMBRE
+HAVING 
+    SUM(PP.CANTIDAD) = (
+        SELECT MAX(SUM(PP2.CANTIDAD))
+        FROM PLATILLO_PEDIDO PP2
+        JOIN PEDIDO P2 ON PP2.ID_PEDIDO = P2.ID_PEDIDO
+        JOIN COMPROBANTE COM2 ON P2.ID_PEDIDO = COM2.ID_PEDIDO
+        WHERE COM2.ID_CLIENTE = C.ID_CLIENTE
+        GROUP BY PP2.ID_PLATILLO
+    )
+ORDER BY 
+    C.ID_CLIENTE;

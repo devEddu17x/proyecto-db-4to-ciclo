@@ -1,0 +1,5 @@
+SELECT 
+    ID_PEDIDO,
+    ESTADO
+FROM 
+    PEDIDO;
