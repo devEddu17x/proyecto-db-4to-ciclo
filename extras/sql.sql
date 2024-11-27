@@ -11,9 +11,9 @@ ORDER BY
     PRECIO DESC;
 
 
--- obtener categorias de platillos con un precio promedio menor a 30
+-- obtener categorias y platos de platillos con un precio promedio menor a 30
 SELECT 
-    CATEGORIA, 
+    CATEGORIA,
     AVG(PRECIO) AS PRECIO_PROMEDIO
 FROM 
     PLATILLO
@@ -37,7 +37,7 @@ HAVING
             AVG(PRECIO)
         FROM 
             PLATILLO
-    );
+);
 
 -- seleccionar platillos con precios mayores al precio promedio
 SELECT 
@@ -51,7 +51,7 @@ WHERE
             AVG(PRECIO)
         FROM 
             PLATILLO
-    );
+);
 
 
 -- obtener la venta total de platillo el dia de hoy
@@ -150,7 +150,7 @@ WITH TotalPorHora AS (
 )
 SELECT
     HORA,
-    TOTAL_PLATILLOS
+    TOTAL_PLATILLOS	
 FROM
     TotalPorHora
 WHERE
@@ -158,6 +158,29 @@ WHERE
 ORDER BY
     HORA;
 
-   
-   
-   
+-- obteer el dia de la semana con mayor demanda   
+SELECT
+    TO_CHAR(p.FECHA, 'Day') AS DIA_SEMANA,
+    SUM(pp.CANTIDAD) AS TOTAL_PLATILLOS
+FROM
+    PEDIDO p
+JOIN
+    PLATILLO_PEDIDO pp ON p.ID_PEDIDO = pp.ID_PEDIDO
+GROUP BY
+    TO_CHAR(p.FECHA, 'Day')
+HAVING
+    SUM(pp.CANTIDAD) = (
+        SELECT
+            MAX(TOTAL_PLATILLOS)
+        FROM
+            (
+                SELECT
+                    SUM(pp2.CANTIDAD) AS TOTAL_PLATILLOS
+                FROM
+                    PEDIDO p2
+                JOIN
+                    PLATILLO_PEDIDO pp2 ON p2.ID_PEDIDO = pp2.ID_PEDIDO
+                GROUP BY
+                    TO_CHAR(p2.FECHA, 'Day')
+            )
+    );
