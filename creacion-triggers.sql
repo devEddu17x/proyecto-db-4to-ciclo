@@ -44,6 +44,16 @@ BEGIN
         FROM PEDIDO
         WHERE ID_PEDIDO = :NEW.ID_PEDIDO
     );
+   
+    -- Actualizar el estado de la mesa asociada al pedido
+    UPDATE PEDIDO 
+    SET ESTADO = 'Cancelado'
+    WHERE NUMERO_MESA = (
+        SELECT NUMERO_MESA
+        FROM PEDIDO
+        WHERE ID_PEDIDO = :NEW.ID_PEDIDO
+    );
+   
 END;
 /
 
